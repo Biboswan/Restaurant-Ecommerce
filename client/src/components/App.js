@@ -1,29 +1,26 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
+import React, { Component, Fragment } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Helmet, link } from 'react-helmet';
+import Home from './Home/Home';
+import Menu from './Menu';
+import iconUrl from '../images/shimlaicon.png';
 
-import Landing from './Landing';
-
-class App extends Component {
-  componentDidMount() {
-    this.props.fetchUser();
-  }
-
+export default class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        {/* BrowserRouter can have only one child component */}
-        <div className="container">
-          <Header />
-          <Route exact path="/" component={Landing} />
-        </div>
+        <Fragment>
+          <Helmet>
+            <link rel="shortcut icon" type="image/png" href={iconUrl} />
+          </Helmet>
+          <Switch>
+            {/* BrowserRouter can have only one child component */}
+
+            <Route exact path="/" component={Home} />
+            <Route exact path="/menu" component={Menu} />
+          </Switch>
+        </Fragment>
       </BrowserRouter>
     );
   }
 }
-
-export default connect(
-  null,
-  actions
-)(App);
