@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_LOCALITIES } from './types';
+import { FETCH_LOCALITIES, FETCH_FOODMENU } from './types';
 
 export const fetchLocalities = () => async dispatch => {
   const res = await axios.get('/api/localities');
@@ -9,4 +9,9 @@ export const fetchLocalities = () => async dispatch => {
     localities[locality] = '';
   });
   dispatch({ type: FETCH_LOCALITIES, payload: localities });
+};
+
+export const fetchFoodMenu = () => async dispatch => {
+  const res = await axios.get('/api/menu');
+  dispatch({ type: FETCH_FOODMENU, payload: res.data });
 };

@@ -1,7 +1,18 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
+import Footer from './Footer';
+import Header from './Header';
+import MenuCardHolder from './MenuCardHolder/MenuCardHolder';
 
 export default class Menu extends PureComponent {
   render() {
-    return <div>Food Menu</div>;
+    return (
+      <Fragment>
+        <Header />
+        <main>
+          <MenuCardHolder />
+        </main>
+        <Footer />
+      </Fragment>
+    );
   }
 }

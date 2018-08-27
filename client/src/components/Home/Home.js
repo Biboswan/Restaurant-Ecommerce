@@ -4,7 +4,7 @@ import Footer from '../Footer';
 import Header from '../Header';
 import HomeBackground from '../HomeBackground/HomeBackground';
 import { Row, Col } from 'react-materialize';
-import SearchLocality from '../SearchLocality';
+import SearchLocality from '../SearchLocality/SearchLocality';
 
 export default class Home extends PureComponent {
   render() {
@@ -13,10 +13,10 @@ export default class Home extends PureComponent {
         <Header />
         <main className="valign-wrapper">
           <Row className="center-align">
-            <Col s={12}>
+            <Col s={12} m={12}>
               <SearchLocality />
             </Col>
-            <Col s={12}>
+            <Col s={12} m={12}>
               <Link className="btn" to="/menu">
                 Go to Food Menu
               </Link>
