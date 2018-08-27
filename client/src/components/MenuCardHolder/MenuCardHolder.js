@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import MenuCard from '../MenuCard';
 import { fetchFoodMenu } from '../../actions';
 import { Collection, CollectionItem, ProgressBar } from 'react-materialize';
+import './MenuCardHolder.css';
 
 class MenuCardHolder extends PureComponent {
   componentDidMount() {
@@ -11,7 +12,7 @@ class MenuCardHolder extends PureComponent {
 
   render() {
     return this.props.foodmenu ? (
-      <Collection className="" header="Food Menu">
+      <Collection className="foodmenubox" header="Food Menu">
         {this.props.foodmenu.map(menuitem => (
           <CollectionItem key={menuitem._id}>
             <MenuCard data={menuitem} />
