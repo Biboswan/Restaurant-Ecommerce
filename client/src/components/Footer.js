@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Footer } from 'react-materialize';
+import { Link } from 'react-router-dom';
 import { FaFacebookSquare, FaInstagram, FaTwitterSquare } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 
@@ -52,19 +53,19 @@ export default () => (
     links={
       <ul>
         <li>
-          <a className="grey-text text-lighten-3" href="#!">
+          <Link className="grey-text text-lighten-3" to="/">
             Home
-          </a>
+          </Link>
         </li>
         <li>
-          <a className="grey-text text-lighten-3" href="#!">
+          <Link className="grey-text text-lighten-3" to="/menu">
             Menu
-          </a>
+          </Link>
         </li>
         <li>
-          <a className="grey-text text-lighten-3" href="#!">
+          <Link className="grey-text text-lighten-3" to="/about">
             About Us
-          </a>
+          </Link>
         </li>
       </ul>
     }
