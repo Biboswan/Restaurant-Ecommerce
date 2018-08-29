@@ -8,7 +8,9 @@ const keys = require('./config/keys');
 require('./models/Locality');
 require('./models/Menu_item');
 require('./models/User');
+require('./models/Cart');
 require('./models/Cart_item');
+
 require('./services/passport');
 
 mongoose.connect(keys.mongoURI);

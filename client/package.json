@@ -4,20 +4,19 @@
   "private": true,
   "proxy": {
     "/auth/google": {
-      "target": "http://localhost:5000"
+      "target": "http://localhost:7000"
     },
     "/api/*": {
-      "target": "http://localhost:5000"
+      "target": "http://localhost:7000"
     },
     "/admin/*": {
-      "target": "http://localhost:5000"
+      "target": "http://localhost:7000"
     }
   },
   "dependencies": {
     "axios": "^0.18.0",
     "csvtojson": "^2.0.8",
     "lodash": "^4.17.10",
-    "materialize-css": "^1.0.0-rc.2",
     "materialize-social": "^1.0.3",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
@@ -28,7 +27,9 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-persist": "^5.10.0",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
