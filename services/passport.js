@@ -2,7 +2,7 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const keys = require('../config/keys');
-
+const _ = require('lodash');
 const User = mongoose.model('users');
 
 passport.serializeUser((user, done) => {
@@ -10,8 +10,13 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser(async (id, done) => {
-  const user = await User.findById(id);
-  done(null, user);
+  await User.findById(id)
+    .lean()
+    .exec((err, user) => {
+      let items = _.keyBy(user.cart.items, item => item.item_name);
+      user.cart.items = items;
+      done(null, user);
+    });
 });
 
 passport.use(

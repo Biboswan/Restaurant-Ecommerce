@@ -10,16 +10,18 @@ import {
 } from 'react-materialize';
 import { connect } from 'react-redux';
 import AddRemoveToCartButtons from './AddRemoveToCartButtons';
-import { updateCart } from '../actions';
+import { updateAddToCart } from '../actions';
 
 class MenuCard extends PureComponent {
   renderCartButton() {
     const { item_name, price } = this.props.data;
+    console.log(item_name);
+    console.log('hola');
     return (this.props.auth && this.props.auth.cart.items[item_name]) ||
       this.props.unknowncart.items[item_name] ? (
-      <AddRemoveToCartButtons name={item_name} />
+      <AddRemoveToCartButtons {...{ item_name }} />
     ) : (
-      <Button onClick={() => this.props.updateCart({ item_name, price })}>
+      <Button onClick={() => this.props.updateAddToCart({ item_name, price })}>
         Add Item
       </Button>
     );
@@ -76,5 +78,5 @@ function mapStateToProps({ auth, unknowncart }) {
 
 export default connect(
   mapStateToProps,
-  { updateCart }
+  { updateAddToCart }
 )(MenuCard);

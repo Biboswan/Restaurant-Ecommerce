@@ -18,12 +18,8 @@ module.exports = app => {
   );
 
   app.get('/api/current_user', (req, res) => {
-    let user = req.user;
-    if (user && user.cart && user.cart.count) {
-      items = _.keyBy(user.cart.items, item => item.item_name);
-      user.cart.items = items;
-    }
-    res.send(user);
+    console.log(req.user);
+    res.send(req.user);
   });
 
   app.get('/api/logout', (req, res) => {

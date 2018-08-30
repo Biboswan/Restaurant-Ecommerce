@@ -31,7 +31,7 @@ class Cart extends PureComponent {
       );
     });
     rows.push(
-      <tr>
+      <tr key="total">
         <td>Total</td>
         <td />
         <td>

@@ -5,7 +5,7 @@ const cart_Schema = require('./Cart');
 const userSchema = new Schema({
   googleID: String,
   emailID: String,
-  cart: cart_Schema,
+  cart: { type: cart_Schema, default: { items: [], count: 0 } },
 });
 
 mongoose.model('users', userSchema);
