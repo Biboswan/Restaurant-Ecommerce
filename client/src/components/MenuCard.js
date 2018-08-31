@@ -18,7 +18,7 @@ class MenuCard extends PureComponent {
     console.log(item_name);
     console.log('hola');
     return (this.props.auth && this.props.auth.cart.items[item_name]) ||
-      this.props.unknowncart.items[item_name] ? (
+      (!this.props.auth && this.props.unknowncart.items[item_name]) ? (
       <AddRemoveToCartButtons {...{ item_name }} />
     ) : (
       <Button onClick={() => this.props.updateAddToCart({ item_name, price })}>

@@ -5,6 +5,7 @@ import {
   FETCH_USER,
   UPDATE_CART_KNOWN,
   UPDATE_CART_UNKNOWN,
+  DELETE_CART_UNKNOWN,
 } from './types';
 
 export const fetchLocalities = () => async dispatch => {
@@ -98,4 +99,8 @@ export const updateRemoveFromCart = ({ item_name }) => async (
       await axios.post('/api/addtocart', { cart: auth.cart });
       dispatch({ type: UPDATE_CART_KNOWN, payload: auth });
   }
+};
+
+export const deleteUnknowCart = () => {
+  return { type: DELETE_CART_UNKNOWN };
 };
