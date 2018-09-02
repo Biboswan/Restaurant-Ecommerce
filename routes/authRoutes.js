@@ -13,17 +13,17 @@ module.exports = app => {
     '/auth/google/callback',
     passport.authenticate('google'), // its a middleware
     (req, res) => {
-      res.redirect('/menu');
+      const referer = new URL(req.headers.referer);
+      res.redirect(referer.pathname);
     }
   );
 
   app.get('/api/current_user', (req, res) => {
-    console.log(req.user);
     res.send(req.user);
   });
 
   app.get('/api/logout', (req, res) => {
     req.logout();
-    res.redirect('/');
+    res.redirect('/menu');
   });
 };
