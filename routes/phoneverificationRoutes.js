@@ -1,6 +1,3 @@
-const mongoose = require('mongoose');
-const FormData = require('form-data');
-const orders = mongoose.model('orders');
 const fetch = require('node-fetch');
 const keys = require('../config/keys');
 
