@@ -4,6 +4,7 @@ import { Helmet, link } from 'react-helmet';
 import { connect } from 'react-redux';
 import Home from './Home/Home';
 import Menu from './Menu';
+import Checkout from './Checkout';
 import iconUrl from '../images/shimlaicon.png';
 import * as actions from '../actions';
 
@@ -24,6 +25,7 @@ class App extends Component {
 
             <Route exact path="/" component={Home} />
             <Route exact path="/menu" component={Menu} />
+            <Route exact path="/checkout" component={Checkout} />
           </Switch>
         </Fragment>
       </BrowserRouter>
