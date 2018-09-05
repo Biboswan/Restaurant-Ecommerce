@@ -1,6 +1,7 @@
-import React, { PureComponent } from 'react';
-import { Table } from 'react-materialize';
+import React, { PureComponent, Fragment } from 'react';
+import { Table, Button } from 'react-materialize';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import _ from 'lodash';
 import './Cart.css';
 
@@ -44,23 +45,31 @@ class Cart extends PureComponent {
   }
   render() {
     return (
-      <Table>
-        <thead>
-          <tr>
-            <th data-field="id">Sl.No</th>
-            <th data-field="item">Item</th>
-            <th data-field="price">Price</th>
-            <th data-field="quantity">Quantity</th>
-          </tr>
-        </thead>
-        <tbody>{this.renderItemRows()}</tbody>
-      </Table>
+      <Fragment>
+        <Table>
+          <thead>
+            <tr>
+              <th data-field="id">Sl.No</th>
+              <th data-field="item">Item</th>
+              <th data-field="price">Price</th>
+              <th data-field="quantity">Quantity</th>
+            </tr>
+          </thead>
+          <tbody>{this.renderItemRows()}</tbody>
+        </Table>
+        <Button
+          role="link"
+          onClick={() => this.props.history.push('/checkout')}
+        >
+          Checkout
+        </Button>
+      </Fragment>
     );
   }
 }
 
-function mapStateToProps({ auth, unknowncart }) {
-  return { auth, unknowncart };
+function mapStateToProps({ auth, unknowncart, history }) {
+  return { auth, unknowncart, history };
 }
 
-export default connect(mapStateToProps)(Cart);
+export default connect(mapStateToProps)(withRouter(Cart));
