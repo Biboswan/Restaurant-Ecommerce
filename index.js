@@ -30,6 +30,7 @@ require('./routes/localityRoutes')(app);
 require('./routes/menuRoutes')(app);
 require('./routes/authRoutes')(app);
 require('./routes/cartRoutes')(app);
+require('./routes/phoneverificationRoutes')(app);
 
 const PORT = process.env.PORT || 7000;
 app.listen(PORT);
