@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Helmet, link } from 'react-helmet';
 import { connect } from 'react-redux';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import Home from './Home/Home';
 import Menu from './Menu';
 import Checkout from './Checkout';
@@ -17,6 +18,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Fragment>
+          <CssBaseline />
           <Helmet>
             <link rel="shortcut icon" type="image/png" href={iconUrl} />
           </Helmet>
