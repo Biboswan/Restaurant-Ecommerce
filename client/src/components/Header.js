@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Navbar, NavItem, Badge, Icon, Dropdown } from 'react-materialize';
 import logoUrl from '../images/shimlalogo75.png';
-import { deleteUnknowCart } from '../actions';
 import Cart from './Cart/Cart';
 
 class Header extends PureComponent {
@@ -64,5 +63,5 @@ function mapStateToProps({ auth, unknowncart }) {
 
 export default connect(
   mapStateToProps,
-  { deleteUnknowCart }
+  null
 )(Header);
