@@ -10,6 +10,7 @@ require('./models/Menu_item');
 require('./models/User');
 require('./models/Cart');
 require('./models/Cart_item');
+require('./models/Order');
 
 require('./services/passport');
 
@@ -31,6 +32,7 @@ require('./routes/menuRoutes')(app);
 require('./routes/authRoutes')(app);
 require('./routes/cartRoutes')(app);
 require('./routes/phoneverificationRoutes')(app);
+require('./routes/orderRoutes')(app);
 
 const PORT = process.env.PORT || 7000;
 app.listen(PORT);
