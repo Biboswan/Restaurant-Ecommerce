@@ -5,8 +5,9 @@ import {
   FETCH_USER,
   UPDATE_CART_KNOWN,
   UPDATE_CART_UNKNOWN,
-  DELETE_CART_UNKNOWN,
   ADD_VERIFIED_PHONE_NUMBER,
+  DONE_DELIVERY_ADDRESS,
+  EDIT_DELIVERY_ADDRESS,
 } from './types';
 
 export const fetchLocalities = () => async dispatch => {
@@ -39,7 +40,6 @@ export const updateAddToCart = ({ item_name, price }) => async (
   const { auth, unknowncart } = getState();
   switch (auth) {
     case false:
-      console.log(unknowncart);
       if (unknowncart.items[item_name]) {
         unknowncart.items[item_name].quantity += 1;
       } else {
@@ -98,10 +98,14 @@ export const updateRemoveFromCart = ({ item_name }) => async (
   }
 };
 
-export const deleteUnknowCart = () => {
-  return { type: DELETE_CART_UNKNOWN };
-};
-
 export const addVerifiedPhone_Number = ({ phone_number }) => {
   return { type: ADD_VERIFIED_PHONE_NUMBER, payload: phone_number };
+};
+
+export const submitDeliveryAddress = () => {
+  return { type: DONE_DELIVERY_ADDRESS };
+};
+
+export const editDeliveryAddress = () => {
+  return { type: EDIT_DELIVERY_ADDRESS };
 };

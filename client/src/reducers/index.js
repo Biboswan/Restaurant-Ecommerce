@@ -5,6 +5,7 @@ import foodmenuReducer from './foodmenuReducer';
 import authReducer from './authReducer';
 import unknownCartReducer from './unknownCartReducer';
 import phone_numberReducer from './phone_numberReducer';
+import checkoutStageReducer from './checkoutStageReducer';
 
 export default combineReducers({
   localities: localitiesReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
   unknowncart: unknownCartReducer,
   form: formReducer,
   verifiednumber: phone_numberReducer,
+  checkout: checkoutStageReducer,
 });
