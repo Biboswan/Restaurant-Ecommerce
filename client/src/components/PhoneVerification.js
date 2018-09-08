@@ -9,6 +9,7 @@ class PhoneVerification extends PureComponent {
     showNumberButton: true,
     phone_number: '',
     verification_code: '',
+    mobile_isValid: true,
   };
 
   onChangePhone_Number(e) {
@@ -24,10 +25,14 @@ class PhoneVerification extends PureComponent {
       via: 'sms',
       phone_number: this.state.phone_number,
     });
+
     if (res.data.success) {
-      this.setState({ showNumberButton: false });
+      this.setState({
+        showNumberButton: false,
+        mobile_isValid: true,
+      });
     } else {
-      this.setState({});
+      this.setState({ mobile_isValid: false });
     }
   }
 
@@ -42,6 +47,8 @@ class PhoneVerification extends PureComponent {
       this.props.addVerifiedPhone_Number({
         phone_number,
       });
+    } else {
+      this.setState({ otpIsValid: false });
     }
   }
 
@@ -58,6 +65,11 @@ class PhoneVerification extends PureComponent {
               value={this.state.phone_number}
               onChange={e => this.onChangePhone_Number(e)}
             />
+            {!this.state.mobile_isValid && (
+              <p>
+                <i>Retry Wrong Number</i>
+              </p>
+            )}
             <Button
               onClick={async () => await this.sendPhoneVerifcationStart()}
             >
@@ -72,6 +84,11 @@ class PhoneVerification extends PureComponent {
               value={this.state.verification_code}
               onChange={e => this.onChangeOTP(e)}
             />
+            {this.state.otpIsValid === false && (
+              <p>
+                <i>Couldn't verify resend</i>
+              </p>
+            )}
             <Button onClick={() => this.sendPhoneVerifcationCheck()}>
               SEND
             </Button>
