@@ -8,6 +8,7 @@ import {
   ADD_VERIFIED_PHONE_NUMBER,
   DONE_DELIVERY_ADDRESS,
   EDIT_DELIVERY_ADDRESS,
+  SUBMIT_ORDER,
 } from './types';
 
 export const fetchLocalities = () => async dispatch => {
@@ -108,4 +109,28 @@ export const submitDeliveryAddress = () => {
 
 export const editDeliveryAddress = () => {
   return { type: EDIT_DELIVERY_ADDRESS };
+};
+
+export const submitOrder = total_pay => async (dispatch, getState) => {
+  const { auth, form, verifiednumber, unknowncart } = getState();
+  let cart,
+    _user = null;
+  const name = form.contactdetailsForm.values['Customer Name'];
+  const address = form.contactdetailsForm.values['Delivery Address'];
+  if (auth) {
+    _user = auth._id;
+    cart = auth.cart;
+  } else {
+    cart = unknowncart.cart;
+  }
+  await axios.post('/api/order/submit', {
+    name,
+    address,
+    mobile_number: verifiednumber,
+    cart,
+    total_pay,
+    _user,
+  });
+  console.log('order');
+  return dispatch({ type: SUBMIT_ORDER });
 };

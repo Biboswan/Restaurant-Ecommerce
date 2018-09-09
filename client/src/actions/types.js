@@ -10,3 +10,4 @@ export const ADD_VERIFIED_PHONE_NUMBER = 'add_verified_phone_number';
 export const DONE_DELIVERY_ADDRESS = 'done_delivery_address';
 export const EDIT_VERIFIED_PHONE_NUMBER = 'edit_verified_phone_no.';
 export const EDIT_DELIVERY_ADDRESS = 'edit_verified_delivery_address';
+export const SUBMIT_ORDER = 'submit_order';
