@@ -7,6 +7,7 @@ const orderSchema = new Schema({
   address: String,
   mobile_number: Number,
   cart: cart_Schema,
+  total_pay: Number,
   _user: { type: Schema.Types.ObjectId, ref: 'User' },
 });
 
