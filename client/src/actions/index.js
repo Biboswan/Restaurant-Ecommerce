@@ -6,6 +6,7 @@ import {
   UPDATE_CART_KNOWN,
   UPDATE_CART_UNKNOWN,
   ADD_VERIFIED_PHONE_NUMBER,
+  EDIT_VERIFIED_PHONE_NUMBER,
   DONE_DELIVERY_ADDRESS,
   EDIT_DELIVERY_ADDRESS,
   SUBMIT_ORDER,
@@ -107,6 +108,10 @@ export const submitDeliveryAddress = () => {
   return { type: DONE_DELIVERY_ADDRESS };
 };
 
+export const editVerifiedPhoneNumber = () => {
+  return { type: EDIT_VERIFIED_PHONE_NUMBER };
+};
+
 export const editDeliveryAddress = () => {
   return { type: EDIT_DELIVERY_ADDRESS };
 };
@@ -121,8 +126,9 @@ export const submitOrder = total_pay => async (dispatch, getState) => {
     _user = auth._id;
     cart = auth.cart;
   } else {
-    cart = unknowncart.cart;
+    cart = unknowncart;
   }
+
   await axios.post('/api/order/submit', {
     name,
     address,
@@ -131,6 +137,5 @@ export const submitOrder = total_pay => async (dispatch, getState) => {
     total_pay,
     _user,
   });
-  console.log('order');
   return dispatch({ type: SUBMIT_ORDER });
 };

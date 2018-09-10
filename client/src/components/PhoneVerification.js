@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react';
-import { Row, Input, Button, Col } from 'react-materialize';
+import React, { PureComponent, Fragment } from 'react';
+import { Row, Input, Button, Col, Icon } from 'react-materialize';
 import axios from 'axios';
-import { addVerifiedPhone_Number } from '../actions';
+import { addVerifiedPhone_Number, editVerifiedPhoneNumber } from '../actions';
 import { connect } from 'react-redux';
 
 class PhoneVerification extends PureComponent {
@@ -55,7 +55,18 @@ class PhoneVerification extends PureComponent {
   render() {
     return (
       <Row>
-        {this.state.showNumberButton ? (
+        {this.props.checkout.step1 === 'done' ? (
+          <Fragment>
+            <p>{this.props.verifiednumber}</p>
+            <Button
+              onClick={this.props.editVerifiedPhoneNumber}
+              className="red btn-flat right white-text"
+            >
+              EDIT
+              <Icon right>edit</Icon>
+            </Button>
+          </Fragment>
+        ) : this.state.showNumberButton ? (
           <Col>
             <Input
               placeholder="+91"
@@ -102,7 +113,11 @@ class PhoneVerification extends PureComponent {
   }
 }
 
+function mapStateToProps({ checkout, verifiednumber }) {
+  return { checkout, verifiednumber };
+}
+
 export default connect(
-  null,
-  { addVerifiedPhone_Number }
+  mapStateToProps,
+  { addVerifiedPhone_Number, editVerifiedPhoneNumber }
 )(PhoneVerification);
