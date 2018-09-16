@@ -1,0 +1,11 @@
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}
+
+@media only screen and (min-width: 800px) {
+  .bottom-nav {
+    visibility: hidden;
+  }
+}

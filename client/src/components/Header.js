@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { Navbar, NavItem, Badge, Icon, Dropdown } from 'react-materialize';
+import { Navbar, NavItem, Dropdown } from 'react-materialize';
 import logoUrl from '../images/shimlalogo75.png';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Badge from '@material-ui/core/Badge';
 import Cart from './Cart/Cart';
 
 class Header extends PureComponent {
@@ -32,12 +34,16 @@ class Header extends PureComponent {
             <Dropdown
               trigger={
                 <span>
-                  <Badge>
-                    {this.props.auth
-                      ? this.props.auth.cart.count
-                      : this.props.unknowncart.count}
+                  <Badge
+                    badgeContent={
+                      this.props.auth
+                        ? this.props.auth.cart.count
+                        : this.props.unknowncart.count
+                    }
+                    color="primary"
+                  >
+                    <ShoppingCartIcon />
                   </Badge>
-                  <Icon right>shopping_cart</Icon>
                 </span>
               }
               options={{
