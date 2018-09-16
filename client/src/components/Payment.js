@@ -21,7 +21,7 @@ class Payment extends PureComponent {
     if (auth) {
       cart = auth.cart;
     } else {
-      cart = unknowncart.cart;
+      cart = unknowncart;
     }
     _.forIn(cart.items, (value, key) => {
       const { price, quantity } = value;
