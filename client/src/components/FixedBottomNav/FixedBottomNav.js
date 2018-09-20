@@ -22,7 +22,7 @@ class FixedBottomNav extends PureComponent {
 
     return (
       <BottomNavigation
-        className="bottom-nav"
+        className="hide-on-large-only bottom-nav"
         value={value}
         onChange={this.handleChange}
       >
