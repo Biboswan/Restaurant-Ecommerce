@@ -4,7 +4,7 @@ import { Helmet, link } from 'react-helmet';
 import { connect } from 'react-redux';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Home from './Home/Home';
-import Menu from './Menu';
+import Menu from './Menu/Menu';
 import Checkout from './Checkout';
 import iconUrl from '../images/shimlaicon.png';
 import * as actions from '../actions';
