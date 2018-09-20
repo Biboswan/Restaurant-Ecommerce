@@ -1,5 +1,8 @@
 .foodmenubox {
-  max-width: 400px;
+  max-width: 100vw;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

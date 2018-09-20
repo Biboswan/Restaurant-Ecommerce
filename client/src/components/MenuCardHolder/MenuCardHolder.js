@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import groupArray from 'group-array';
+import _ from 'lodash';
 import MenuCard from '../MenuCard';
 import { fetchFoodMenu } from '../../actions';
 import { Collection, CollectionItem, ProgressBar } from 'react-materialize';
@@ -10,18 +12,37 @@ class MenuCardHolder extends PureComponent {
     this.props.fetchFoodMenu();
   }
 
+  buildMenuBlock() {
+    const foodmenu = groupArray(this.props.foodmenu, 'category', 'subcategory');
+    let items = [];
+    let subcat;
+    _.forEach(foodmenu, (value, category) => {
+      items.push(
+        <Collection className="foodmenubox">
+          <section key={category} id={category}>
+            {_.forEach(value, (arr, subcategory) => {
+              subcat = (
+                <section
+                  id={`${category}-${subcategory}`}
+                  key={`${category}-${subcategory}`}
+                >
+                  {arr.map(menuitem => (
+                    <CollectionItem key={menuitem._id}>
+                      <MenuCard data={menuitem} />
+                    </CollectionItem>
+                  ))}
+                </section>
+              );
+            }) && subcat}
+          </section>
+        </Collection>
+      );
+    });
+    return items;
+  }
+
   render() {
-    return this.props.foodmenu ? (
-      <Collection className="foodmenubox" header="Food Menu">
-        {this.props.foodmenu.map(menuitem => (
-          <CollectionItem key={menuitem._id}>
-            <MenuCard data={menuitem} />
-          </CollectionItem>
-        ))}
-      </Collection>
-    ) : (
-      <ProgressBar />
-    );
+    return this.props.foodmenu ? this.buildMenuBlock() : <ProgressBar />;
   }
 }
 

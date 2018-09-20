@@ -18,6 +18,7 @@
     "@material-ui/icons": "^3.0.1",
     "axios": "^0.18.0",
     "csvtojson": "^2.0.8",
+    "group-array": "^0.3.3",
     "lodash": "^4.17.10",
     "materialize-social": "^1.0.3",
     "react": "^16.4.2",
