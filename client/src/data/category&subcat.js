@@ -1,0 +1,23 @@
+export default {
+  SOUP: ['VEG', 'NON-VEG'],
+  STARTER: ['VEG', 'NON-VEG', 'FISH'],
+  'CHINESE MAIN COURSE': [
+    'VEG',
+    'CHICKEN',
+    'FISH',
+    'PRAWN',
+    'VEG NOODLES',
+    'NON-VEG NOODLES',
+    'RICE VEG',
+    'NON VEG-RICE',
+  ],
+  INDIAN: [
+    'VEG TANDOORI KABAB',
+    'CHICKEN TANDOORI KABAB',
+    'FISH TANDOORI KABAB',
+    'CHICKEN MAIN COURSE',
+    'MUTTON MAIN COURSE',
+    'FISH MAIN COURSE',
+  ],
+  DESSERT: [],
+};
