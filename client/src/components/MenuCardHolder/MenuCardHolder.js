@@ -15,13 +15,13 @@ class MenuCardHolder extends PureComponent {
   buildMenuBlock() {
     const foodmenu = groupArray(this.props.foodmenu, 'category', 'subcategory');
     let items = [];
-    let subcat;
+    let subcat = [];
     _.forEach(foodmenu, (value, category) => {
       items.push(
-        <Collection className="foodmenubox">
+        <Collection key={`${category}section`} className="foodmenubox">
           <section key={category} id={category}>
             {_.forEach(value, (arr, subcategory) => {
-              subcat = (
+              subcat.push(
                 <section
                   id={`${category}-${subcategory}`}
                   key={`${category}-${subcategory}`}
@@ -37,6 +37,7 @@ class MenuCardHolder extends PureComponent {
           </section>
         </Collection>
       );
+      subcat = [];
     });
     return items;
   }
