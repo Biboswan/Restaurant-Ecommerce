@@ -17,4 +17,14 @@ Google Login works only in Google Chrome. Currently has issues in safari and fir
 3. Auto detect location and autofill it
 4. Food Recommendation
 5. Dashboard and UI for the food the restaurant admin
+
+### Preview:
+
+![alt text](https://github.com/Biboswan/Restaurant-Ecommerce/blob/master/screenshots/p1.png)
+
+
+![alt text](https://github.com/Biboswan/Restaurant-Ecommerce/blob/master/screenshots/p2.png)
+
+
+![alt text](https://github.com/Biboswan/Restaurant-Ecommerce/blob/master/screenshots/p4.png)
  
