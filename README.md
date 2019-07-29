@@ -1,3 +1,4 @@
+Currently It is not maintained and I see login has some issues now. Will fix it when I get time.
 # Restaurant-Ecommerce
 STACK USED: MERN
 
